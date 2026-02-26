@@ -85,8 +85,8 @@ public class Village {
 	}
 	
 	public String rechercherVendeursProduit(String produit) {
-		StringBuilder chaine = new StringBuilder(vendeur.getNom());
 		Etal[] etalsProduits = marche.trouverEtals(produit);
+		StringBuilder chaine = new StringBuilder();
 		int nombreEtals = etalsProduits.length;
 		
 		if(nombreEtals <=0) {
@@ -117,6 +117,7 @@ public class Village {
 			}
 			
 		}
+		return chaine.toString();
 		
 	}
 	
@@ -150,7 +151,7 @@ public class Village {
 			Etal[] tableau = new Etal[nbEtals];
 			int indiceTableau = 0;
 			for(int k=0; k<etals.length; k++) {
-				if(etals[k].contientProduit(produit)){
+				if(etals[k]!=null && etals[k].contientProduit(produit)){
 					tableau[indiceTableau] = etals[k];
 					indiceTableau++;
 				}
