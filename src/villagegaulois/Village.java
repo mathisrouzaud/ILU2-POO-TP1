@@ -44,7 +44,11 @@ public class Village {
 		return null;
 	}
 
-	public String afficherVillageois() {
+	public String afficherVillageois() throws VillageSansChefException {
+		if (this.chef == null) {
+			throw new VillageSansChefException("Impossible d'afficher les villageois : le village n'a pas de chef !");
+		}
+		
 		StringBuilder chaine = new StringBuilder();
 		if (nbVillageois < 1) {
 			chaine.append("Il n'y a encore aucun habitant au village du chef "
@@ -56,7 +60,6 @@ public class Village {
 				chaine.append("- ");
 				chaine.append(villageois[i].getNom());
 				chaine.append("\n");
-				
 			}
 		}
 		return chaine.toString();
