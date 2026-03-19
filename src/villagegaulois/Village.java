@@ -134,7 +134,7 @@ public class Village {
 		return this.marche.afficherMarche();
 	}
 	
-	public static class Marche{
+	private static class Marche{
 		private Etal[] etals;
 		
 		private Marche(int nbEtals) {
