@@ -177,10 +177,9 @@ public class Village {
 			return tableau;
 		}
 		
-		//TODO utiliser equals
 		private Etal trouverVendeur(Gaulois gaulois) {
 			for(int i=0; i<etals.length; i++) {
-				if(etals[i].getVendeur() == gaulois) {
+				if(etals[i].isEtalOccupe() && etals[i].getVendeur().equals(gaulois)) {
 					return etals[i];
 				}
 			}
